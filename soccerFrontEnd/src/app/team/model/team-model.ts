@@ -14,6 +14,4 @@ export default interface TeamModel{
       fax? : string
       homepage? : string
       OWNER? : string
-
-
 }
