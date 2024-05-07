@@ -1,15 +1,11 @@
+import { API_PLAYERS } from "app/com/config/prefix";
 import axios from "axios"
 
 export const getDistinctPositionKey = ['getDistinctPosition']
 export const getDistinctPosition = async () => {
-    const { data } = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/search`,
-        {
-            params: {
-                q: "player",
-                oq: "position"
-            }
-        });
-
+    const fetchData = {q:'position-list', page:1, size:5, sort:['position','asc']}
+    const { data } = await axios.get(`${API_PLAYERS}/search`,
+        {params: fetchData, paramsSerializer:{indexes:null, }});
     return data
 }
 
